@@ -17,7 +17,7 @@
 
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-liberty.css">
-
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -134,7 +134,7 @@
             <div class="d-grid cont-main-top">
                 <!-- contact form -->
                 <div class="contacts12-main">
-                    <form action="mail.php" method="post" class="main-input">
+                    <form action="#" class="main-input" id="contact-form">
                         <div class="top-inputs d-grid">
                             <input type="text" placeholder="Name" name="cName" id="cName" required="true">
                             <input type="email" name="cEmail" placeholder="Email" id="cEmail" required="true">
@@ -216,6 +216,19 @@
     <span class="fas fa-level-up-alt" aria-hidden="true"></span>
 </button>
 <script>
+    (function() {
+    emailjs.init("service_1dmsr0w");
+})();
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_1dmsr0w', 'template_bam25rf', this)
+            .then(function() {
+                alert('Email sent!');
+            }, function(error) {
+                alert('Failed to send email:', error);
+            });
+    });
+
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
         scrollFunction()
