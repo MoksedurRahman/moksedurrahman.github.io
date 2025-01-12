@@ -134,7 +134,7 @@
             <div class="d-grid cont-main-top">
                 <!-- contact form -->
                 <div class="contacts12-main">
-                    <form action="mail.php" method="post" class="main-input">
+                    <form action="https://datavisionbd.com/site/mail.php" method="post" id="main-contact-form" class="main-input">
                         <div class="top-inputs d-grid">
                             <input type="text" placeholder="Name" name="cName" id="cName" required="true">
                             <input type="email" name="cEmail" placeholder="Email" id="cEmail" required="true">
@@ -398,7 +398,41 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- //bootstrap-->
 <!-- //Js scripts -->
+<script>
+    var form = $('#main-contact-form');
+    form.submit(function(event){
+        event.preventDefault();
+        var form_status = $('<div class="form_status"></div>');
 
+        var data = {
+            name: $('#cName').val(),
+            email: $('#cEmail').val(),
+            subject: $('#cMobile').val(),
+            message: $('#cMessage').val()
+        };
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: "POST",
+            dataType: "json",
+            data: {'data': data},
+            beforeSend: function(){
+                form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
+            },
+            success: function (data) {
+                if(data == 1){
+                    form_status.html('<p class="text-success">Thank you, your message has been sent successfully. We aim to reply as soon as possible.</p>').delay(3000).fadeOut();
+                }
+                else{
+                    form_status.html('<p class="text-error">Sorry, email not sent</p>').delay(3000).fadeOut();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
