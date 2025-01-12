@@ -349,8 +349,6 @@
 
 
 <!-- jQuery-Photo-filter-lightbox-portfolio-plugin -->
-    
-<script src="assets/js/jquery-3.7.1.min.js"></script>
 <script src="assets/js/jquery-1.7.2.js"></script>
 <script src="assets/js/jquery.quicksand.js"></script>
 <script src="assets/js/script.js"></script>
@@ -400,41 +398,7 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- //bootstrap-->
 <!-- //Js scripts -->
-<script>
-    var form = $('#main-contact-form');
-    form.submit(function(event){
-        event.preventDefault();
-        var form_status = $('<div class="form_status"></div>');
 
-        var data = {
-            name: $('#cName').val(),
-            email: $('#cEmail').val(),
-            subject: $('#cMobile').val(),
-            message: $('#cMessage').val()
-        };
-
-        $.ajax({
-            url: $(this).attr('action'),
-            type: "POST",
-            dataType: "json",
-            data: {'data': data},
-            beforeSend: function(){
-                form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
-            },
-            success: function (data) {
-                if(data == 1){
-                    form_status.html('<p class="text-success">Thank you, your message has been sent successfully. We aim to reply as soon as possible.</p>').delay(3000).fadeOut();
-                }
-                else{
-                    form_status.html('<p class="text-error">Sorry, email not sent</p>').delay(3000).fadeOut();
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log(error);
-            }
-        });
-    });
-</script>
 </body>
 
 </html>
