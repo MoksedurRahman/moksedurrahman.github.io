@@ -1,5 +1,5 @@
 <?php
-$field_name = 'Moksedur';//$_POST['cName'];
+$field_name = 'Md Moksedur Rahman';//$_POST['cName'];
 $field_email = 'moksedur2810@gmail.com';$_POST['cEmail'];
 $field_message = 'Body Message';//$_POST['cMessage'];
 
