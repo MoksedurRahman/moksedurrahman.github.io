@@ -1,9 +1,8 @@
 <?php
-$data = $_POST['data'];
-$name       = $data['name'];
-$from       = $data['email'];
-$subject    = $data['subject'];
-$message    = $data['message'];
+$name       = 'Moksedur';
+$from       = 'sales@datavisionbd.com';
+$subject    = 'test mail';
+$message    = 'hello test';
 $to         = 'info@datavisionbd.com';
 
 $headers = "MIME-Version: 1.0";
