@@ -1,4 +1,5 @@
 <?php
+
 $name       = 'Moksedur';
 $from       = 'sales@datavisionbd.com';
 $subject    = 'test mail';
@@ -18,3 +19,4 @@ if(mail($to, $subject, $message, $headers)){
 else{
     echo 0;
 }
+?>
