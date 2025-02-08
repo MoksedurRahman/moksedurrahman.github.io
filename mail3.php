@@ -19,4 +19,5 @@ if(mail($to, $subject, $message, $headers)){
 else{
     echo 0;
 }
+
 ?>
